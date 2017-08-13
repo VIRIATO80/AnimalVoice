@@ -13,7 +13,7 @@ var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var cssnano = require("cssnano");
 var imagemin = require("gulp-imagemin");
-var responsive = require("gulp-responsive");
+//var responsive = require("gulp-responsive");
 
 
 
@@ -28,9 +28,12 @@ var bootstrapSass = {
 
 // fonts
 var fonts = {
-    in: [source + 'fonts/*.*', bootstrapSass.in + 'assets/fonts/**/*'],
+    in: ['fonts/*.*', source + 'fonts/*.*', bootstrapSass.in + 'assets/fonts/**/*'],
     out: dest + 'fonts/'
 };
+
+
+
 
 // css source file: .scss files
 var scss = {
@@ -46,7 +49,7 @@ var scss = {
 };
 
 //Tarea por defecto
-gulp.task("default", [ "img", "html", "sassBoot", "js" ], function(){
+gulp.task("default", ["copiaImg", "html", "sassBoot", "js" ], function(){
 
     //Iniciamos el browser-sync como servidor de desarrollo
     browserSync.init({ server: "dist/" });
@@ -124,13 +127,14 @@ gulp.task("js", function(){
 
 // copy bootstrap required fonts to dest
 gulp.task('fonts', function () {
-    return gulp
+     return gulp
         .src(fonts.in)
         .pipe(gulp.dest(fonts.out));
+
 });
 
 // tarea que optimiza y crea las imágenes responsive
-gulp.task("img", function(){
+/*gulp.task("img", function(){
     gulp.src(source+"img/*")
         .pipe(responsive({ // generamos las versiones responsive
             '*': [
@@ -140,5 +144,14 @@ gulp.task("img", function(){
             ]
         }))
         .pipe(imagemin([],{})) // optimizamos el peso de las imágenes
+        .pipe(gulp.dest(dest+"img/"))
+});
+
+*/
+
+
+// tarea que copia imagenes
+gulp.task("copiaImg", function(){
+    gulp.src(source+"img/*")
         .pipe(gulp.dest(dest+"img/"))
 });
