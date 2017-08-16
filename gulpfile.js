@@ -105,7 +105,8 @@ gulp.task('sassBoot', ['fonts'], function () {
 
 //Compilar y generar un único JS
 gulp.task("js", function(){
-    gulp.src(source+"js/main.js")
+    var sourceFiles = [ source+'js/*.js' ];
+    gulp.src(sourceFiles)
         .pipe(tap(function(file){// Tap nos permite ejecutar una funcion por cada fichero seleccionado en gulp.src
             //Reemplazamos el contenido del fichero por lo que nos devuelve browserify pasándole el fichero
             file.contents = browserify(file.path, {debug: true}) //creamos una instancia de browserify en base al archivo
