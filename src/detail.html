@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>La Voz Animal - Noticia</title>
+    <title>La Voz Animal - Detalle</title>
     <!--bloque head-->
     @import "head.html"
 </head>
@@ -9,10 +9,22 @@
 <div class="container-fluid">
     <div class="col-xs-1 col-md-2 ">&nbsp;</div>
     <div class="col-xs-10 col-md-8 ">
-        <!--Cabecera y menú-->
-        @import "header.html"
+        <!--Cabecera de la página-->
+        <header>
+            @import "header.html"
+        </header>
+        <!--Barra de navegación-->
+        <nav class="navbar navbar-inverse">
+            @import "navbar.html"
+        </nav>
+        <!--Cuerpo de la noticia-->
+        <main>
+            @import "articleContent.html"
+        </main>
         <!--Pie de página-->
-        @import "footer.html"
+        <footer class="footer">
+            @import "footer.html"
+        </footer>
     </div>
 </div>
 </body>
