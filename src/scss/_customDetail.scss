@@ -1,14 +1,15 @@
 //CSS Style for detail.html
-h1{
+header{
   font-size: 32px;
   color: #228b22;
   font-weight: 500;
 }
 
-.glyphicon {
-  padding-left: 5px;
+article .btn {
+  padding: 2px;
+  border: 1px solid;
 }
 
-article .btn {
-  padding: 0;
+aside{
+  color: #1b6d85;
 }
