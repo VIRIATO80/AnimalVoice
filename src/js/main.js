@@ -1,5 +1,11 @@
 window.$ = window.jQuery =  require("jquery");
 
+import LikesManager from "./LikesManager";
+import LikesService from "./LikesService";
+
+
+const likeService = new LikesService();
+
 
 //Funcionalidad para el botón de subir al top de la página
 function subir() {
@@ -10,8 +16,16 @@ function subir() {
 
 $( document ).ready(function() {
 
+    //Funcionalidad para el botón de volver a inicio
     var backTop = document.getElementById("back-to-top");
     backTop.addEventListener('click', subir);
+
+    //Iniciamos los likes de cada artículo de la lista
+    const likesManager = new LikesManager('.news', likeService);
+    likesManager.init();
+
+
+
 });
 
 

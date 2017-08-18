@@ -2,14 +2,27 @@
 header{
   font-size: 32px;
   color: #228b22;
-  font-weight: 500;
+  font-weight: 600;
+  @media (max-width: $screen-xs-min) {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
 }
 
 article .btn {
-  padding: 2px;
+  padding: 3px 15px 3px 15px;
   border: 1px solid;
 }
 
 aside{
   color: #1b6d85;
+}
+
+.well {
+  border: 3px double $bg-green-dark;
+}
+
+section>img{
+  border: 3px double $bg-green-dark;
 }
