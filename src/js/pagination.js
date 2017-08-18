@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
 
-    var pageSize = 2;
+    var pageSize = 3;
     var pagesCount = $(".content").length;
     var currentPage = 1;
 

@@ -13,7 +13,7 @@ var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var cssnano = require("cssnano");
 var imagemin = require("gulp-imagemin");
-//var responsive = require("gulp-responsive");
+var responsive = require("gulp-responsive");
 
 
 
@@ -49,7 +49,7 @@ var scss = {
 };
 
 //Tarea por defecto
-gulp.task("default", ["copiaImg", "html", "sassBoot", "js" ], function(){
+gulp.task("default", ["img", "copiaImg", "html", "sassBoot", "js" ], function(){
 
     //Iniciamos el browser-sync como servidor de desarrollo
     browserSync.init({ server: "dist/" });
@@ -135,20 +135,19 @@ gulp.task('fonts', function () {
 });
 
 // tarea que optimiza y crea las imágenes responsive
-/*gulp.task("img", function(){
+gulp.task("img", function(){
     gulp.src(source+"img/*")
         .pipe(responsive({ // generamos las versiones responsive
             '*': [
-                { height: 150, rename: { suffix: "-150px"}},
-                { height: 250, rename: { suffix: "-250px"}},
-                { height: 400, rename: { suffix: "-300px"}}
+                { width: 600, height: 300, rename: { suffix: "-pq"}},
+                { width: 800, height: 400, rename: { suffix: "-lg"}}
             ]
         }))
         .pipe(imagemin([],{})) // optimizamos el peso de las imágenes
         .pipe(gulp.dest(dest+"img/"))
 });
 
-*/
+
 
 
 // tarea que copia imagenes

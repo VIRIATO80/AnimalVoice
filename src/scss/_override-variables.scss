@@ -1,8 +1,17 @@
 
+//Variables boostrap
 $gray-base: #000;
 $gray: lighten($gray-base, 33.5%);
-$body-bg: #c7ffaf;
+$body-bg: #e3ffe3;
 $text-color: $gray;
 $link-color: #337ab7;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-decoration :none;
+
+//Variables propias
+
+$bg-green-dark: #228b22;
+$text-light-color: white;
+$very-dark-color: black;
+$red-chalk: #ed7777;
+$blue-chalk: #94c0cc;

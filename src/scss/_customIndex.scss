@@ -34,15 +34,15 @@ header .row{
 .header_bg{
   max-width: 100%;
   height: 100px;
-  border: 1px solid black;
+  border: 1px solid $very-dark-color;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  background-color: #228b22;
+  background-color: $bg-green-dark;
 
   h1{
     font-family: jungle;
     font-size: 42px;
-    color: white;
+    color: $text-light-color;
     font-weight: bolder;
   }
 
@@ -67,11 +67,11 @@ header .row{
 
 nav {
   a {
-    color: white;
+    color: $text-light-color;
   }
 
   .container-fluid{
-    background-color: #228b22;
+    background-color: $bg-green-dark;
   }
 
   .navbar-brand {
@@ -85,7 +85,7 @@ nav {
 
 .navbar-inverse  {
   .navbar-brand{
-    color: white;
+    color: $text-light-color;
     font-weight: 600;
     font-family: jungle;
     font-size: 32px;
@@ -95,43 +95,45 @@ nav {
   }
 
   .navbar-nav > li > a {
-    color: white;
+    color: $text-light-color;
   }
 
+}
+
+.active{
+  font-weight: 600;
+}
+
+.inactive{
+  font-weight: 600;
+
+  &:hover{
+    background-color: $very-dark-color;
+  }
 }
 
 //main
 
 //pizarra anuncios
 
-.blackboard{
+.$very-dark-colorboard{
   display:block;
   overflow:auto;
   font-family: pizarra;
   text-align: center;
   font-size: 36px;
   font-weight: 500;
-  color: #ed7777;
+  color: $red-chalk;
   background-image: url("/img/chalkboard-green.jpg");
 
 
-  .orange{
-    color: #fad48b;
-    font-size: 22px;
-  }
-
   .blue{
-    color: #94c0cc;
+    color: $blue-chalk;
     font-size: 22px;
   }
 
   .green{
-    color: #bcdf8a;
-    font-size: 22px;
-  }
-
-  .yellow{
-    color: #d6d963;
+    color: $body-bg;
     font-size: 22px;
   }
 
@@ -155,7 +157,7 @@ small {
 
 .section-header{
   background-color: $gray-base;
-  color: white;
+  color: $text-light-color;
   font-family: jungle;
   font-size: 16px;
   padding: 5px 10px;
@@ -164,19 +166,29 @@ small {
 }
 
 .news {
-  border: 1px solid #228b22;
+  border: 1px solid $bg-green-dark;
   margin: 20px 0 0 0;
 }
 
 .title {
-  color: #228b22;
+  color: $bg-green-dark;
   font-weight: 500;
+  padding: 5px;
+  @media (max-width: $screen-xs-min) {
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
 
 .titleOtherNews{
-  color: #228b22;
+  color: $bg-green-dark;
   font-size: 14px;
   font-weight: 200;
+  padding: 5px;
+  @media (max-width: $screen-xs-min) {
+    font-size: 12px;
+    font-weight: bold;
+  }
 }
 
 .text-muted {
@@ -188,11 +200,11 @@ small {
 article.col-md-6.col-xs-12 {
     margin-bottom: 20px;
     padding-left:0;
-  padding-right:0;
+    padding-right:0;
 }
 
 .hrStyle {
-  border-top: 3px double #228b22;
+  border-top: 3px double $bg-green-dark;
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -202,15 +214,15 @@ article.col-md-6.col-xs-12 {
 .footer_bg{
   max-width: 100%;
   height: 100px;
-  border: 1px solid black;
+  border: 1px solid $very-dark-color;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-  background-color: #228b22;
+  background-color: $bg-green-dark;
 
   h1{
     font-family: jungle;
     font-size: 32px;
-    color: white;
+    color: $text-light-color;
     font-weight: bolder;
     @media (max-width: $screen-xs-min) {
       font-size: 16px;
@@ -224,7 +236,7 @@ article.col-md-6.col-xs-12 {
 
   .glyphicon {
     font-size: 40px;
-    color: white;
+    color: $text-light-color;
   }
 }
 
