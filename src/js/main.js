@@ -20,11 +20,15 @@ $( document ).ready(function() {
     var backTop = document.getElementById("back-to-top");
     backTop.addEventListener('click', subir);
 
+
     //Iniciamos los likes de cada artículo de la lista
     const likesManager = new LikesManager('.news', likeService);
-    likesManager.init();
+    likesManager.leerBotonesLista();
 
 
+    //Iniciamos el número de likes de la página de detalle
+    const likesManagerDetail = new LikesManager('article', likeService);
+    likesManagerDetail.leerBotonesLista();
 
 });
 

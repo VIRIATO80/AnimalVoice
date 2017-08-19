@@ -49,7 +49,7 @@ var scss = {
 };
 
 //Tarea por defecto
-gulp.task("default", ["img", "copiaImg", "html", "sassBoot", "js" ], function(){
+gulp.task("default", ["img", "copiaImg", "copiaVideos", "html", "sassBoot", "js" ], function(){
 
     //Iniciamos el browser-sync como servidor de desarrollo
     browserSync.init({ server: "dist/" });
@@ -154,4 +154,11 @@ gulp.task("img", function(){
 gulp.task("copiaImg", function(){
     gulp.src(source+"img/*")
         .pipe(gulp.dest(dest+"img/"))
+});
+
+
+// tarea que copia videos
+gulp.task("copiaVideos", function(){
+    gulp.src(source+"video/*")
+        .pipe(gulp.dest(dest+"video/"))
 });

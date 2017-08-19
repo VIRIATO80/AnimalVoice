@@ -183,12 +183,8 @@ small {
 .titleOtherNews{
   color: $bg-green-dark;
   font-size: 14px;
-  font-weight: 200;
+  font-weight: bold;
   padding: 5px;
-  @media (max-width: $screen-xs-min) {
-    font-size: 12px;
-    font-weight: bold;
-  }
 }
 
 .text-muted {
