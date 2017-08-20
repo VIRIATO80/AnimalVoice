@@ -1,8 +1,8 @@
 export default class LikesManager {
 
     constructor(selector, likesService){
-        this.likesService = likesService;
         this.element = $(selector);
+        this.likesService = likesService;
     }
 
     leerBotonesLista() {
@@ -28,17 +28,20 @@ export default class LikesManager {
     }
 
     leerBotonMeGustaDetalle(){
+        console.log(this.selector);
+        let self = this;
         let boton = this.element.querySelector('.content .btn-primary');
 
-        let valor = this.likesService.readLikesArticle(e.getAttribute('data-id'));
+        let valor = this.likesService.readLikesArticle(boton.getAttribute('data-id'));
         if (valor != null && valor != 'undefined') {
-            e.innerHTML = valor + " me gusta";
+            boton.innerHTML = valor + " me gusta";
         }
 
+        let idBoton = boton.getAttribute('data-id');
         //Añadimos evento a cada uno de los botones de me gusta
-        boton.on("click", function(){
-            let valorDespues = this.likesService.addLikeArticle(this.getAttribute('data-id'));
-            self.renderLike(this,valor);
+        boton.addEventListener("click", ()=>{
+            let valorDespues = this.likesService.addLikeArticle(idBoton);
+            this.renderLike(boton,valorDespues);
         });
     }
 

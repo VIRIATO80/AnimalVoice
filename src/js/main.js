@@ -27,8 +27,8 @@ $( document ).ready(function() {
 
 
     //Iniciamos el número de likes de la página de detalle
-    const likesManagerDetail = new LikesManager('article', likeService);
-    likesManagerDetail.leerBotonesLista();
+    const likesManagerDetail = new LikesManager('#detalle', likeService);
+    likesManagerDetail.leerBotonMeGustaDetalle();
 
 });
 

@@ -41,6 +41,7 @@ export default class LikesService {
 
 
      addLikeArticle(articleId) {
+
         if (typeof(localStorage) != 'undefined') {
             //Primero tenemos que saber el valor actual de likes
             let valor = this.readLikesArticle(articleId);
