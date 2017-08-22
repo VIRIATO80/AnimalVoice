@@ -1,7 +1,7 @@
 //CSS Style for detail.html
 header{
   font-size: 24px;
-  color: #228b22;
+  color: $bg-green-dark;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -21,4 +21,12 @@ aside{
 
 section>img{
   border: 3px double $bg-green-dark;
+}
+
+strong {
+  color: $bg-green-dark;
+}
+
+.autorDetalle{
+  max-width: 100px;
 }

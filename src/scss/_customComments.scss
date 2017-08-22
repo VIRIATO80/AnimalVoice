@@ -1,0 +1,75 @@
+.panel {
+  position:relative;
+
+  &.panel-heading{
+    position:absolute;
+    top:11px;left:-16px;
+    right:100%;
+    width:0;
+    height:0;
+    display:block;
+    content:" ";
+    border-color:transparent;
+    border-style:solid solid outset;
+    pointer-events:none;
+
+    &:before{
+      border-right-color:#ddd;
+      border-width:8px;
+    }
+
+    &:after{
+      border-width:7px;
+      border-right-color:#f7f7f7;
+      margin-top:1px;
+      margin-left:2px;
+    }
+  }
+}
+
+
+.thumbnail {
+  img{
+    max-width: 100px;
+  }
+}
+
+//Estados del sistema de comentarios
+
+.comments-list{
+  margin-top: 55px;
+
+  .ui-status {
+    display: none;
+  }
+
+  &.empty{
+    .ui-status.empty{
+      display: block;
+    }
+  }
+
+  &.error{
+    .ui-status.error{
+      display: block;
+    }
+  }
+
+  &.loading{
+    .ui-status.loading{
+      display: block;
+    }
+  }
+
+  &.ideal{
+    .ui-status.ideal{
+      display: block;
+    }
+  }
+
+  &.empty, &.loading, &.error{
+    font-size: 18px;
+    text-align: center;
+    padding: 50px;
+  }
+}

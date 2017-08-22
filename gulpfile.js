@@ -14,7 +14,7 @@ var autoprefixer = require("autoprefixer");
 var cssnano = require("cssnano");
 var imagemin = require("gulp-imagemin");
 var responsive = require("gulp-responsive");
-
+var jsonServer = require('json-server');
 
 
 // source and distribution folder
@@ -52,9 +52,24 @@ var scss = {
 gulp.task("default", ["img", "copiaImg", "copiaVideos", "html", "sassBoot", "js" ], function(){
 
     //Iniciamos el browser-sync como servidor de desarrollo
-    browserSync.init({ server: "dist/" });
-    console.log('Servidor Arrancado');
-    //browserSync.init({ proxy: "http://127.0.0.1:3100" });
+    // start the browserSync server
+    browserSync.init({ server: "dist/" }
+    , function (err, browserSync) {
+
+        // access the browserSync connect instance
+        var server = jsonServer.create()
+        server.use(jsonServer.defaults())
+        server.use(jsonServer.router('db.json'))
+            browserSync.app.use('/', server);
+
+    });
+
+
+
+
+    //browserSync.init({ server: "dist/" });
+    //console.log('Servidor Arrancado');
+    //browserSync.init({ proxy: "http://localhost:8000" });
 
     //Observa cambios en los archivos sass y entonces ejecuta la tarea sass que compila los fuentes
     //gulp.watch([source+"scss/*.scss", source+"scss/**/*.scss"], ["sass"]);
@@ -144,7 +159,18 @@ gulp.task("img", function(){
             ]
         }))
         .pipe(imagemin([],{})) // optimizamos el peso de las imágenes
+        .pipe(gulp.dest(dest+"img/"));
+
+    //Imagenes de avatar
+    gulp.src(source+"img/avatar/*")
+        .pipe(responsive({ // generamos las versiones responsive
+            '*': [
+                { width: 230, height: 230}
+            ]
+        }))
+        .pipe(imagemin([],{})) // optimizamos el peso de las imágenes
         .pipe(gulp.dest(dest+"img/"))
+
 });
 
 

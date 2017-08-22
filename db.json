@@ -1,0 +1,16 @@
+{
+  "comentarios": [
+    {
+      "id": 1,
+      "autor": "Starlight",
+      "fecha": "22/05/2015",
+      "comentario": "hola, que pasa"
+    },
+    {
+      "id": 1,
+      "autor": "Hey",
+      "fecha": "22/05/2017",
+      "comentario": "Para qué quieres saber eso"
+    }
+  ]
+}

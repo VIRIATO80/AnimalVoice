@@ -16,10 +16,10 @@
 }
 
 
+
 .pageTitle{
   max-width: 100%;
   padding-top: 10px;
-
   @media (max-width: $screen-sm-min) {
     visibility: hidden;
     height:50px;
@@ -171,7 +171,7 @@ small {
 }
 
 .title {
-  color: $bg-green-dark;
+
   font-weight: 500;
   padding: 5px;
   @media (max-width: $screen-xs-min) {
