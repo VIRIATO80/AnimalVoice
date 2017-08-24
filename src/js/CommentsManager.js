@@ -47,8 +47,8 @@ export default class CommentsManager extends UIManager{
     renderComment(comment){
      return `<div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-2">
-                    <div class="thumbnail">
-                        <img class="img-responsive user-photo" src="/img/avatar/none.jpg">
+                    <div>
+                        <img class="img-responsive img-thumbnail" src="/img/avatar/none.jpg">
                     </div>
                 </div>
                 <div class="col-xs-9 col-sm-9 col-md-10">
