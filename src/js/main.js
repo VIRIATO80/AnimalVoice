@@ -3,23 +3,19 @@ window.$ = window.jQuery =  require("jquery");
 import LikesManager from "./LikesManager";
 import LikesService from "./LikesService";
 import ScrollManager from "./ScrollManager";
-
-
-
-const likeService = new LikesService();
-
+import DatesManager from "./DatesManager";
 
 
 
 
 $( document ).ready(function() {
 
-
     //Iniciamos los likes de cada artículo
+    const likeService = new LikesService();
     const likesManager = new LikesManager(likeService);
     likesManager.leerBotonesLista();
 
-    //Iniciamos el gestor de carga de comentarios asíncrona
+    //Iniciamos el gestor de eventos de scroll
     const scrollManager = new ScrollManager();
 
     //Añadimos un evento al scroll del navegador
@@ -28,6 +24,22 @@ $( document ).ready(function() {
     //Funcionalidad para el botón de volver a inicio
     let backTop = document.getElementById("back-to-top");
     backTop.addEventListener('click', scrollManager.subir);
+
+    //Funcionalidad para los enlaces que van directamente a la sección de comentarios
+    let botonesComentarios = document.querySelectorAll('i.glyphicon.glyphicon-comment');
+    botonesComentarios.forEach(function(elem){
+        elem.addEventListener("click", function() {
+            scrollManager.irAComentariosSection();
+            //Movemos un poco el scroll para forzar el evento de carga de comentarios
+            var y = $(window).scrollTop();
+            $(window).scrollTop(y-50);
+        });
+    });
+
+    //Iniciamos el gestor de pintar las fechas del listado de noticias según antigüedad
+    const datesManager = new DatesManager();
+    //Funcionalidad que mira la hora de publicación del listado de noticias (se actualiza cada minuto)
+    datesManager.updateDates();
 
 
 });

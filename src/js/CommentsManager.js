@@ -1,14 +1,20 @@
 import UIManager from './UIManager';
 
+
 export default class CommentsManager extends UIManager{
 
-    constructor(selector, commentService){
+    constructor(selector, commentService, pubSub){
         super(selector);
         this.commentService = commentService;
+        this.pubSub = pubSub;
     }
 
     init(){
         this.loadComments();
+        //Dejamos de observer el listado de comentarios. Cuando llegue uno nuevo, se debe añadir
+        this.pubSub.subscribe("nuevo-comentario",(topic, comentario)=>{
+            this.loadComments();
+        })
     }
 
 
