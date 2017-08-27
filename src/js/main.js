@@ -34,7 +34,9 @@ $( document ).ready(function() {
 
     //Funcionalidad para los enlaces que van directamente a la sección de comentarios
     let botonesComentarios = document.querySelectorAll('i.glyphicon.glyphicon-comment');
-    botonesComentarios.forEach(function(elem){
+
+    Array.prototype.forEach.call (botonesComentarios, function (elem) {
+    //botonesComentarios.forEach(function(elem){
         elem.addEventListener("click", function() {
             scrollManager.irAComentariosSection();
             //Movemos un poco el scroll para forzar el evento de carga de comentarios

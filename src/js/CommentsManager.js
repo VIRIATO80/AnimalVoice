@@ -10,7 +10,6 @@ export default class CommentsManager extends UIManager{
     }
 
     init(){
-        console.log('llego');
         this.loadComments();
         //Dejamos de observer el listado de comentarios. Cuando llegue uno nuevo, se debe añadir
         this.pubSub.subscribe("nuevo-comentario",(topic, comentario)=>{
