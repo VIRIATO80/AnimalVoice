@@ -169,7 +169,7 @@ gulp.task("img", function(){
             ]
         }))
         .pipe(imagemin([],{})) // optimizamos el peso de las imágenes
-        .pipe(gulp.dest(dest+"img/"))
+        .pipe(gulp.dest(dest+"img/avatar/"))
 
 });
 

@@ -1,6 +1,4 @@
-import CommentsService from "./CommentsService";
 import CommentsManager from "./CommentsManager";
-import FormManager from "./FormManager";
 import PubSub from 'pubsub-js';
 
 export default class ScrollManager {
@@ -21,14 +19,10 @@ export default class ScrollManager {
     }
 
     //Lazy load por section Commentarios
-    lazyLoad() {
-
-
+    lazyLoad(commentsService) {
         var section = document.getElementById('listadoComentarios');
         if(section != null) { //Significa que estamos en la página de detalle
 
-            //Gestor de comentarios (ahora basado en JSON)
-            const commentsService = new CommentsService("/comentarios/");
            //Altura del cuerpo de la noticia
             let altoNoticia = document.getElementById('detalle').offsetHeight;
 
@@ -42,9 +36,6 @@ export default class ScrollManager {
                 this.cargados=true;
             }
 
-            //Iniciamos el gestor del formulario
-            const formManager = new FormManager("#contactoForm", commentsService, PubSub);
-            formManager.init();
         }
     }
 }

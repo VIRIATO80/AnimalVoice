@@ -10,14 +10,12 @@ export default class FormManager extends UIManager {
     }
 
     init(){
-        console.log('init');
         this.setupSubmitEventHandler();
     }
 
     setupSubmitEventHandler() {
 
         this.element.on("submit", () => {
-            console.log('hola');
             this.validateAndSendData();
             return false;
         });
@@ -46,7 +44,6 @@ export default class FormManager extends UIManager {
     }
 
     send(){
-        console.log('metodo send');
         this.setLoading();
         const comentario = {
             autor: this.element.find("#nombre").val(),

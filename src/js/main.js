@@ -1,9 +1,11 @@
 window.$ = window.jQuery =  require("jquery");
 
 import LikesManager from "./LikesManager";
+import CommentsService from "./CommentsService";
 import LikesService from "./LikesService";
 import ScrollManager from "./ScrollManager";
 import DatesManager from "./DatesManager";
+import FormManager from "./FormManager";
 
 
 
@@ -15,11 +17,16 @@ $( document ).ready(function() {
     const likesManager = new LikesManager(likeService);
     likesManager.leerBotonesLista();
 
+    //Gestor de comentarios (ahora basado en JSON)
+    const commentsService = new CommentsService("/comentarios/");
+
+
     //Iniciamos el gestor de eventos de scroll
-    const scrollManager = new ScrollManager();
+    const scrollManager = new ScrollManager(commentsService);
 
     //Añadimos un evento al scroll del navegador
-    window.addEventListener('scroll', scrollManager.lazyLoad);
+    window.addEventListener('scroll', ()=>{
+        scrollManager.lazyLoad(commentsService);});
 
     //Funcionalidad para el botón de volver a inicio
     let backTop = document.getElementById("back-to-top");
@@ -40,6 +47,10 @@ $( document ).ready(function() {
     const datesManager = new DatesManager();
     //Funcionalidad que mira la hora de publicación del listado de noticias (se actualiza cada minuto)
     datesManager.updateDates();
+
+    //Iniciamos el gestor del formulario
+    const formManager = new FormManager("#contactoForm", commentsService, PubSub);
+    formManager.init();
 
 
 });
