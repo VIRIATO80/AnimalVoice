@@ -27,9 +27,25 @@ export default class FormManager extends UIManager {
         }
     }
 
+
+
+    contarPalabras(mensaje){
+        //Eliminamos dobles espacios
+        let palabras = mensaje.val().trim().replace(/\s{2,}/g, ' ').split(' ');
+        //La longitud del value debe ser igual o menor a 120;
+        if(palabras.length > 120){
+            this.setErrorHtml("Solo se admiten comentarios de hasta 120 palabras");
+            this.setError();
+            return false;
+        }
+        return true;
+    }
+
+
     isValid(){
         const inputs = this.element.find("input");
-        for(let input of inputs){
+        for(let i=0; i < inputs.length; i++){
+            let input = inputs[i];
             if(input.checkValidity() == false){
                 const errorMessage = input.validationMessage;
                 this.setErrorHtml(errorMessage);
@@ -38,16 +54,32 @@ export default class FormManager extends UIManager {
             }
         }
 
-        //Llegamos a esta línea si no hay ningún error
-        this.setIdeal();
-        return true;
+        //Comprobamos que se han introducido menos de 120 palabras en el textarea de comentario
+        let mensaje = this.element.find("textarea");
+        if(this.contarPalabras(mensaje)) {
+            //Llegamos a esta línea si no hay ningún error
+            this.setIdeal();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    dameFecha(){
+        let fecha = new Date();
+        let mes = fecha.getMonth() + 1;
+        if(mes < 10){
+            mes = '0'+mes;
+        }
+        //Formato 2017-07-24T17:35
+        return fecha.getFullYear() + '-' + mes+ '-' + fecha.getDate()+ 'T' +fecha.getHours()+ ':' +fecha.getMinutes();
     }
 
     send(){
         this.setLoading();
         const comentario = {
             autor: this.element.find("#nombre").val(),
-            fecha: new Date(),
+            fecha: this.dameFecha(),
             comentario: this.element.find("#comentario").val(),
         };
 
@@ -68,7 +100,7 @@ export default class FormManager extends UIManager {
 
 
     resetForm() {
-        this.element[0].reset();//Resetea el formulario
+        this.element.find("form")[0].reset();//Resetea el formulario
     }
 
     disableFormControls(){

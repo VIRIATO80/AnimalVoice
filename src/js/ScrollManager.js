@@ -20,7 +20,8 @@ export default class ScrollManager {
 
     //Lazy load por section Commentarios
     lazyLoad(commentsService) {
-        var section = document.getElementById('listadoComentarios');
+        let section = document.getElementById('listadoComentarios');
+
         if(section != null) { //Significa que estamos en la página de detalle
 
            //Altura del cuerpo de la noticia
@@ -29,7 +30,7 @@ export default class ScrollManager {
             //Posición de inicio de la sección comentarios
             let posSection = section.offsetTop;
             let altoSeccion = section.offsetHeight;
-            var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+            let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
             if ((((posSection + altoSeccion ) - altoNoticia )<= scrollPosition) && !this.cargados ){
                 const commentsManager = new CommentsManager('.comments-list', commentsService, PubSub);
                 commentsManager.init();

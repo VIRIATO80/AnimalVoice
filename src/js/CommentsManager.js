@@ -1,5 +1,5 @@
 import UIManager from './UIManager';
-
+import DatesManager from "./DatesManager";
 
 export default class CommentsManager extends UIManager{
 
@@ -7,7 +7,8 @@ export default class CommentsManager extends UIManager{
         super(selector);
         this.commentService = commentService;
         this.pubSub = pubSub;
-    }
+        this.datesManager = new DatesManager();
+    };
 
     init(){
         this.loadComments();
@@ -15,7 +16,7 @@ export default class CommentsManager extends UIManager{
         this.pubSub.subscribe("nuevo-comentario",(topic, comentario)=>{
             this.loadComments();
         })
-    }
+    };
 
 
     //Cargar la lista de canciones con AJAX
@@ -36,21 +37,28 @@ export default class CommentsManager extends UIManager{
                 console.error("Error en el servidor al mostrar los comentarios", error);
             }
         );
-    }
+
+        //Funcionalidad que mira la hora de publicación del listado de comentarios (se actualiza cada minuto)
+        this.datesManager.updateDates();
+    };
 
     renderComments(comments){
         let html = "";
-        for(let comment of comments){
+        //Array.prototype.forEach.call (comments, function (comment) {
+        for(let i=0; i<comments.length;i++){
+            let comment = comments[i];
             html += this.renderComment(comment);
         }
 
         //Metemos en el html de la capa correspondiente el list de los comentarios que hay en el backend
         this.setIdealHtml(html);
-    }
+    };
 
 
     //Pintamos el comentario
     renderComment(comment){
+
+     let fechaFormateada = DatesManager.formateaFecha(comment.fecha);
      return `<div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-2">
                     <div>
@@ -60,7 +68,7 @@ export default class CommentsManager extends UIManager{
                 <div class="col-xs-9 col-sm-9 col-md-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <strong>${comment.autor}</strong> <span class="text-muted">&nbsp;${comment.fecha}</span>
+                            <strong>${comment.autor}</strong> <span class="text-muted">&nbsp;<time data-time="${comment.fecha}" title="${fechaFormateada}">${fechaFormateada}</time></span>
                         </div>
                         <div class="panel-body">
                             ${comment.comentario}
@@ -68,5 +76,5 @@ export default class CommentsManager extends UIManager{
                     </div>
                 </div>
             </div>`;
-    }
+    };
 }

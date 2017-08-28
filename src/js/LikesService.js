@@ -24,18 +24,12 @@ export default class LikesService {
             }
             return listado;
         }
-        else {
-            // you can't use web storage
-            return;
-        }
     }
 
 
      readLikesArticle(articleId) {
         if (typeof(localStorage) != 'undefined') {
             return localStorage.getItem(articleId);
-        } else {
-            return;
         }
     }
 
@@ -49,8 +43,6 @@ export default class LikesService {
             valor++;
             localStorage.setItem(articleId, valor);
             return this.readLikesArticle(articleId);
-        } else {
-            return;
         }
     }
 

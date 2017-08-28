@@ -33,14 +33,13 @@ $( document ).ready(function() {
     backTop.addEventListener('click', scrollManager.subir);
 
     //Funcionalidad para los enlaces que van directamente a la sección de comentarios
-    let botonesComentarios = document.querySelectorAll('i.glyphicon.glyphicon-comment');
-
+    let botonesComentarios = document.querySelectorAll('.enlaceComentarios');
     Array.prototype.forEach.call (botonesComentarios, function (elem) {
     //botonesComentarios.forEach(function(elem){
         elem.addEventListener("click", function() {
             scrollManager.irAComentariosSection();
             //Movemos un poco el scroll para forzar el evento de carga de comentarios
-            var y = $(window).scrollTop();
+            let y = $(window).scrollTop();
             $(window).scrollTop(y-50);
         });
     });
@@ -51,7 +50,7 @@ $( document ).ready(function() {
     datesManager.updateDates();
 
     //Iniciamos el gestor del formulario
-    const formManager = new FormManager("#contactoForm", commentsService, PubSub);
+    const formManager = new FormManager('.comments-form', commentsService, PubSub);
     formManager.init();
 
 

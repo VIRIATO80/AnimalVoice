@@ -6,14 +6,14 @@
 
 @font-face {
   font-family: "jungle";
-  src: url("/fonts/jungle.eot");
-  src: local("jungle"), url("/fonts/jungle.ttf") format("truetype"); /* resto de navegadores */
+  src: url("/fonts/jungle.eot") format('embedded-opentype'),
+  url("/fonts/jungle.ttf") format("truetype"); /* resto de navegadores */
 }
 
 @font-face {
   font-family: "pizarra";
-  src: url("/fonts/pizarra.eot");
-  src: local("pizarra"), url("/fonts/pizarra.ttf") format("truetype"); /* resto de navegadores */
+  src: url("/fonts/pizarra.eot") format('embedded-opentype'),
+  url("/fonts/pizarra.ttf") format("truetype"); /* resto de navegadores */
 }
 
 
@@ -205,6 +205,14 @@ article.col-md-6.col-xs-12 {
   margin-top: 0;
 }
 
+.enlaceComentarios{
+  cursor: pointer;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+
 //Estilos del pie
 
 .footer_bg{
@@ -229,7 +237,7 @@ article.col-md-6.col-xs-12 {
 
 .back-to-top{
   padding-top: 15px;
-
+  cursor: pointer;
   .glyphicon {
     font-size: 40px;
     color: $text-light-color;

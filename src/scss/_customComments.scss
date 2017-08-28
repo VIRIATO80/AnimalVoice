@@ -36,7 +36,7 @@
 
 //Estados del sistema de comentarios
 
-.comments-list{
+.comments-list, .comments-form{
   margin-top: 55px;
   color: $bg-green-dark;
   .ui-status {
@@ -65,11 +65,5 @@
     .ui-status.ideal{
       display: block;
     }
-  }
-
-  &.empty, &.loading, &.error{
-    font-size: 18px;
-    text-align: center;
-    padding: 50px;
   }
 }

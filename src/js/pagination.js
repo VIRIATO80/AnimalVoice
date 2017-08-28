@@ -1,22 +1,22 @@
 $( document ).ready(function() {
 
 
-    var pageSize = 3;
-    var pagesCount = $(".content").length;
-    var currentPage = 1;
+    let pageSize = 3;
+    let pagesCount = $(".content").length;
+    let currentPage = 1;
 
     /////////// PREPARE NAV ///////////////
-    var nav = '';
-    var totalPages = Math.ceil(pagesCount / pageSize);
+    let nav = '';
+    let totalPages = Math.ceil(pagesCount / pageSize);
 
-    for (var s=0; s<totalPages; s++){
+    for (let s=0; s<totalPages; s++){
         nav += '<li class="numeros"><a href="#">'+(s+1)+'</a></li>';
     }
     $(".pag_prev").after(nav);
     $(".numeros").first().addClass("active");
     //////////////////////////////////////
 
-    var showPage = function() {
+    let showPage = function() {
         $(".content").hide().each(function(n) {
             if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
                 $(this).show();
@@ -26,7 +26,8 @@ $( document ).ready(function() {
             if (n >= pageSize * (currentPage - 1) && n < pageSize * currentPage)
                 $(this).show();
         });
-    }
+    };
+
     showPage();
 
 

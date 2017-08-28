@@ -3,32 +3,38 @@
     {
       "id": 1,
       "autor": "Starlight",
-      "fecha": "22/05/2015",
+      "fecha": "2017-08-24T12:35",
       "comentario": "hola, que pasa"
     },
     {
       "id": 1,
       "autor": "Hey",
-      "fecha": "22/05/2017",
+      "fecha": "2017-08-26T13:00",
       "comentario": "Para qué quieres saber eso"
     },
     {
       "autor": "paco",
-      "fecha": "Fri Aug 25 2017 19:20:43 GMT+0200 (Hora de verano romance)",
+      "fecha": "2017-08-27T11:15",
       "comentario": "hola",
       "id": 2
     },
     {
-      "autor": "paco",
-      "fecha": "Fri Aug 25 2017 19:20:43 GMT+0200 (Hora de verano romance)",
+      "autor": "pedro",
+      "fecha": "2017-08-28T13:41",
       "comentario": "hola",
       "id": 3
     },
     {
-      "autor": "Pepe",
-      "fecha": "Sun Aug 27 2017 13:10:50 GMT+0200 (Hora de verano romance)",
-      "comentario": "hola que tal",
+      "autor": "hola",
+      "fecha": "2017-08-28T13:47",
+      "comentario": "hola",
       "id": 4
+    },
+    {
+      "autor": "VIRIATO",
+      "fecha": "2017-08-28T19:10",
+      "comentario": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies.",
+      "id": 5
     }
-  ]
+
 }

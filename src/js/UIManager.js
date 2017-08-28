@@ -16,6 +16,7 @@ export default class UIManager {
     }
 
     setError() {
+
         this.element.removeClass(this.uiStateClasses).addClass("error");
     }
 
