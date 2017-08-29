@@ -38,7 +38,7 @@ var fonts = {
 // css source file: .scss files
 var scss = {
     in: source + 'scss/main.scss',
-    out: dest + 'css/',
+    out: dest,
     watch: source + 'scss/**/*',
     sassOpts: {
         outputStyle: 'nested',
@@ -120,8 +120,7 @@ gulp.task('sassBoot', ['fonts'], function () {
 
 //Compilar y generar un único JS
 gulp.task("js", function(){
-    var sourceFiles = [ source+'js/*.js' ];
-    gulp.src(sourceFiles)
+    gulp.src(source+"/js/main.js")
         .pipe(tap(function(file){// Tap nos permite ejecutar una funcion por cada fichero seleccionado en gulp.src
             //Reemplazamos el contenido del fichero por lo que nos devuelve browserify pasándole el fichero
             file.contents = browserify(file.path, {debug: true}) //creamos una instancia de browserify en base al archivo
@@ -135,10 +134,10 @@ gulp.task("js", function(){
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(uglify()) // Minificamos el Javascript
         .pipe(sourcemaps.write("./"))
-        .pipe(gulp.dest(dest))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest("dist/"))
+        .pipe(browserSync.stream())
+        .pipe(notify("JS Compilado"));
 });
-
 
 
 // copy bootstrap required fonts to dest
