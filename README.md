@@ -1,2 +1,4 @@
-Portal web responsive desarrollado con HTML5 y gulp.
-El servidor utilizado para las peticiones JSON y simular el backend es json-server.
+# La Voz Animal
+Maqueta de portal web responsive desarrollado con **HTML5, CSS3, Bootstrap y Vanilla JS** y generado con Gulp.
+
+El servidor de pruebas que alimenta de datos la página es **json-server**.
